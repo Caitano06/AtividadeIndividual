@@ -7,3 +7,10 @@ let alunoSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("Aluno", alunoSchema);
+
+//Aluno - Perfil -> 1:1
+//Tarefa - Disciplina -> n:n
+//Tarefa - Disciplina -> n:n
+//Professor - Disciplina -> 1:n
+//Turma - Aluno -> 1:n
+//Turma - Professor -> n:1

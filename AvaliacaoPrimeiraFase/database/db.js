@@ -1,7 +1,7 @@
 let mongoose = require('mongoose');
 
-const server = 'localhost:27017'; // COLOQUE O NOME DO SEU SERVIDOR DO BANCO DE DADOS
-const database = 'avaliacao1';      // COLOQUE O NOME DO SEU BANCO DE DADOS
+const server = 'localhost:27017'; 
+const database = 'atividade-individual';      
 
 class Database {
   constructor() {
