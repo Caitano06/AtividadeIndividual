@@ -2,7 +2,7 @@ let mongoose = require("mongoose");
 
 let alunoSchema = new mongoose.Schema({
   nome: { type: String, required: true },
-  idade: { type: Number, required: true, min: 15, max: 99 },
+  idade: { type: Number, required: true, min: 18, max: 65 },
   perfil: { type: mongoose.Schema.Types.ObjectId, ref: "Perfil" },
 });
 

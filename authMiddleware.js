@@ -3,7 +3,7 @@ const jwtService = require("jsonwebtoken");
 module.exports = (req, res, next) => {
   const path = req.path;
   const method = req.method;
-  const nonSecurePaths = ["/api/professor", "/api/aluno", "/api/perfil"];
+  const nonSecurePaths = ["/api/professor", "/api/aluno", "/api/perfil", "/api/auth/login"];
   let token = req.headers.authorization;
 
   if (

@@ -2,32 +2,32 @@ const Aluno = require("../models/aluno");
 const perfil = require("../models/perfil");
 
 module.exports = {
-  criarAluno: async (req, res) => {
-    try {
-      const { nome, idade } = req.body;
+criarAluno: async (req, res) => {
+  try {
+    console.log("Corpo da requisição recebido:", req.body);
 
-      if (!nome || !idade) {
-        throw new Error("Nome e idade são obrigatórios");
-      } else {
-        const novoAluno = {
-          nome,
-          idade,
-        };
+    const { nome, idade } = req.body;
 
-        await Aluno.create(novoAluno);
+    console.log("dasdsa")
+    console.log(nome) 
 
-        res.status(201).json({
-          message: "Aluno criado com sucesso!",
-          aluno: novoAluno,
-        });
-      }
-    } catch (e) {
-      res.status(400).json({
-        message: "Erro ao criar aluno",
-        error: e.message,
-      });
+    if (!nome || !idade) {
+      throw new Error("Nome e idade são obrigatórios");
     }
-  },
+
+    const novoAluno = await Aluno.create({ nome, idade });
+
+    res.status(201).json({
+      message: "Aluno criado com sucesso!",
+      aluno: novoAluno,
+    });
+  } catch (e) {
+    res.status(400).json({
+      message: "Erro ao criar aluno",
+      error: e.message,
+    });
+  }
+},
   obterTodosAlunos: async (req, res) => {
     try {
       const alunos = await Aluno.find().populate("perfil");

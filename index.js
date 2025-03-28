@@ -7,6 +7,7 @@ const perfilRoutes = require("./AvaliacaoPrimeiraFase/routes/perfilRoutes");
 const professorRoutes = require("./AvaliacaoPrimeiraFase/routes/professorRoutes");
 const tarefaRoutes = require("./AvaliacaoPrimeiraFase/routes/tarefaRoutes");
 const turmaRoutes = require("./AvaliacaoPrimeiraFase/routes/turmaRoutes");
+const authRoutes = require("./AvaliacaoPrimeiraFase/routes/authRoutes");
 
 const app = express();
 
@@ -23,7 +24,9 @@ app.use("/api", perfilRoutes);
 app.use("/api", professorRoutes);
 app.use("/api", tarefaRoutes);
 app.use("/api", turmaRoutes);
+app.use("/api/auth", authRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(`Servidor rodando na porta ${process.env.PORT}!`);
 });
+
